@@ -80,21 +80,21 @@ void loop()
         delay(500);
       }
      
-            // Move the cell top "upwards"
-            if (Button2State == HIGH) 
-            {
-              MoveUp();
-              Button2State = LOW;
-              delay(500);
-            }
+       // Move the cell top "upwards"
+       if (Button2State == HIGH) 
+       {
+         MoveUp();
+         Button2State = LOW;
+         delay(500);
+       }
      
-                   // resets the cell top to the starting position
-                   if (Button3State == HIGH) 
-                   {
-                       MoveDown();
-                       Button3State = LOW;
-                       delay(500);
-                   }
+       // resets the cell top to the starting position
+       if (Button3State == HIGH) 
+       {
+           MoveDown();
+           Button3State = LOW;
+           delay(500);
+       }
       
 }
 
