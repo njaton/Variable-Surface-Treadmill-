@@ -57,45 +57,45 @@ void setup()
 {
   // indicate the Buad number for displaying information
   Serial.begin(9600);
-
+  
   //Set each button as an input 
-   pinMode(Button1,INPUT);
-   pinMode(Button2,INPUT);
-   pinMode(Button3,INPUT); 
+  pinMode(Button1,INPUT);
+  pinMode(Button2,INPUT);
+  pinMode(Button3,INPUT); 
 
 }
 
 void loop() 
 {  
-    // read the information on the buttons 
-    Button1State = digitalRead(Button1);
-    Button2State = digitalRead(Button2);
-    Button3State = digitalRead(Button3);
-
-      // Random number generator
-      if (Button1State == HIGH) 
-      {
-        RandomNumbers();
-        Button1State = LOW;
-        delay(500);
-      }
-     
-       // Move the cell top "upwards"
-       if (Button2State == HIGH) 
-       {
-         MoveUp();
-         Button2State = LOW;
-         delay(500);
-       }
-     
-       // resets the cell top to the starting position
-       if (Button3State == HIGH) 
-       {
-           MoveDown();
-           Button3State = LOW;
-           delay(500);
-       }
-      
+  // read the information on the buttons 
+  Button1State = digitalRead(Button1);
+  Button2State = digitalRead(Button2);
+  Button3State = digitalRead(Button3);
+  
+  // Random number generator
+  if (Button1State == HIGH) 
+  {
+    RandomNumbers();
+    Button1State = LOW;
+    delay(500);
+  }
+  
+  // Move the cell top "upwards"
+  if (Button2State == HIGH) 
+  {
+    MoveUp();
+    Button2State = LOW;
+    delay(500);
+  }
+  
+  // resets the cell top to the starting position
+  if (Button3State == HIGH) 
+  {
+     MoveDown();
+     Button3State = LOW;
+     delay(500);
+  }
+    
 }
 
 //Random Number Generator Function
@@ -103,77 +103,77 @@ void loop()
 void RandomNumbers()
 { 
   Serial.println("Current time values"); //Title
-
-        //Motor 1
-        Rand1 = random(10000, 20000); 
-        Serial.println(Rand1); 
-
-        //Motor 2
-        Rand2 = random(10000, 20000); 
-        Serial.println(Rand2);   
-
-        //Motor 3
-        Rand3 = random(10000, 20000); 
-        Serial.println(Rand3); 
-
-        Serial.println("ready for next command");
-
-        delay(400);
+  
+  //Motor 1
+  Rand1 = random(10000, 20000); 
+  Serial.println(Rand1); 
+  
+  //Motor 2
+  Rand2 = random(10000, 20000); 
+  Serial.println(Rand2);   
+  
+  //Motor 3
+  Rand3 = random(10000, 20000); 
+  Serial.println(Rand3); 
+  
+  Serial.println("ready for next command");
+  
+  delay(400);
 }
 
 //Upwards Movement Function
 //This function will tell the motors to move upwards based on the predetermined value. 
 void MoveUp()
 {
-             delay(100);
-
-             //Motor 1
-             motor1.drive(255,Rand1); 
-             motor1.brake();
-             delay(200);
-             Serial.print("Motor one moved upwards ");
-             Serial.println(Rand1);
-
-             //Motor 2
-             motor2.drive(255,Rand2); 
-             motor2.brake();
-             delay(200);
-             Serial.print("Motor two moved upwards ");
-             Serial.println(Rand2);
-
-             //Motor 3
-             motor3.drive(255,Rand3); 
-             motor3.brake();
-             delay(400);
-             Serial.print("Motor three moved upwards ");
-             Serial.println(Rand3);
+  delay(100);
+  
+  //Motor 1
+  motor1.drive(255,Rand1); 
+  motor1.brake();
+  delay(200);
+  Serial.print("Motor one moved upwards ");
+  Serial.println(Rand1);
+  
+  //Motor 2
+  motor2.drive(255,Rand2); 
+  motor2.brake();
+  delay(200);
+  Serial.print("Motor two moved upwards ");
+  Serial.println(Rand2);
+  
+  //Motor 3
+  motor3.drive(255,Rand3); 
+  motor3.brake();
+  delay(400);
+  Serial.print("Motor three moved upwards ");
+  Serial.println(Rand3);
 }
 
 //Reset Function
 //This function works by telling the motors to reverse the same amount that it moved upwards. 
 void MoveDown()
 {
-             delay(100);
-
-             //Motor 1
-             motor1.drive(-255,Rand1); 
-             motor1.brake();
-             delay(200);
-             Serial.print("Motor one moved downwards ");
-             Serial.println(Rand1);
-       
-             //Motor 2
-             motor2.drive(-255,Rand2); 
-             motor2.brake();
-             delay(200);
-             Serial.print("Motor twop moved downwards ");
-             Serial.println(Rand2);
-
-             //Motor 3
-             motor3.drive(-255,Rand3); 
-             motor3.brake();
-             delay(200);
-             Serial.print("Motor three moved downwards ");
-             Serial.println(Rand3);
+  delay(100);
+  
+  //Motor 1
+  motor1.drive(-255,Rand1); 
+  motor1.brake();
+  delay(200);
+  Serial.print("Motor one moved downwards ");
+  Serial.println(Rand1);
+  
+  //Motor 2
+  motor2.drive(-255,Rand2); 
+  motor2.brake();
+  delay(200);
+  Serial.print("Motor twop moved downwards ");
+  Serial.println(Rand2);
+  
+  //Motor 3
+  motor3.drive(-255,Rand3); 
+  motor3.brake();
+  delay(200);
+  Serial.print("Motor three moved downwards ");
+  Serial.println(Rand3);
 }
 
